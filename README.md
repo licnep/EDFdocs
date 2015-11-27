@@ -39,7 +39,7 @@ Create a new folder where the anseri database will be stored. The folder must co
 
 To import your data run the command: `python ~/Desktop/EDF/run_anseri.py import edf output` 
 
-Replace `edf` with the name you want to give to the new database, and `output` with the path of the folder containing your data, generated with one of the conversion scripts.
+Replace `edf` with the name you want to give to the new database, and `output` with the path of the folder containing your data, generated with one of the conversion scripts. This will create an `anseri` folder containing the generated database.
 
 Generating topics:
 ==================
@@ -107,4 +107,4 @@ This happens when a virtual machine is already using a .vdi image with the same 
 
 Where disk.vdi is the name of the vdi you want to use.
 
-For any other issue, contact alessandro.preziosi@sumupanalytics.com
+#####For any other issue, contact alessandro.preziosi@sumupanalytics.com
