@@ -1,24 +1,8 @@
 Setup:
 ======
 
-Download the virtual machine image here: [sumupBare_v0.zip](https://sumup-vmimages.s3.amazonaws.com/sumupBare_v0.zip).
 Open Virtual Box (if you don't have it download it [here](https://www.virtualbox.org/wiki/Downloads)). 
 and create a new virtual machine using the provided vdi image (the password is `sumup`).
-
-Installing and updating the software
-------------------------------------
-
-Start the virtual machine. If you are unable to enter certain characters you may need to change the keyboard layout in the top right corner:
-
-![Layout](img/layout.png)
-
-Inside the virtual machine open a terminal (`ctrl+alt+T`) and execute the setup script:
-
-`source Desktop/vm_config/setup.sh`
-
-This will take a while, and an internet connection is required.
-
-Type `y` to update and `sumup` when prompted for the password.
 
 Sharing a folder for analysis
 -----------------------------
@@ -58,6 +42,14 @@ If everything worked correctly this should create a file named `output.json` in 
 
 Common issues:
 ==============
+
+Keyboard Layout
+---------------
+
+If you are unable to enter certain characters you may need to change the keyboard layout in the top right corner:
+
+![Layout](img/layout.png)
+
 
 Automount issues
 ----------------
