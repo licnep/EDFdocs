@@ -1,28 +1,17 @@
 Setup:
 ======
 
-Download the virtual machine image here: [sumupBare_v0.zip](https://sumup-vmimages.s3.amazonaws.com/sumupBare_v0.zip).
-Open Virtual Box (if you don't have it download it [here](https://www.virtualbox.org/wiki/Downloads)). 
-and create a new virtual machine using the provided vdi image (the password is `sumup`).
-
-Installing and updating the software
-------------------------------------
+Open VirtualBox and create a new virtual machine using "Ubuntu, 64bit" as the OS. When prompted to create a virtual hard disk select the existing one provided by SumUp.
+The password for this virtual machine is `sumup`
 
 Start the virtual machine. If you are unable to enter certain characters you may need to change the keyboard layout in the top right corner:
 
 ![Layout](img/layout.png)
 
-Inside the virtual machine open a terminal (`ctrl+alt+T`) and execute the setup script:
-
-`source Desktop/vm_config/setup.sh`
-
-This will take a while, and an internet connection is required.
-
-Type `y` to update and `sumup` when prompted for the password.
-
 Sharing a folder for analysis
 -----------------------------
 
+In order to analyze documents you have to share the original folder with the virtual machine, so it will be able to read from it.
 This should be done with the virtual machine turned off, otherwise the settings will not be permanent. Open the VM Settings and go to Shared Folders.
 
 ![Step 1](img/step1.png)
@@ -33,7 +22,7 @@ Click on the button to add a shared folder.
 
 ![Step 3](img/step3.png)
  
-Choose the folder you want to work on. Name the shared folder "share", and activate automount.
+Choose the folder containing the files you want to work on. Name the shared folder "share", and activate automount.
 
 ![Step 4](img/step4.png)
 
@@ -45,15 +34,34 @@ If that doesn't work see the _automount issues_ section
 Usage:
 ======
 
-On the desktop you will find a folder named `share`, if the setup worked the folder should contain your files.
+Data conversion:
+================
 
-Open a terminal using `ctrl+alt+T`.
+Open a terminal using `ctrl+alt+T`. Run the command `dir2json.py source` where `source` is the folder containing your files. The code will scan the folder and all subfolders to extract plaintext from files. It will create a folder named `output` that you can later import into anseri.
 
-Run the command: `dir2json.py ~/Desktop/share/`
+For example: `dir2json.py /media/sf_share`
 
-(Replace `~/Desktop/share/` with another folder if needed)
+Importing data into anseri:
+===========================
 
-If everything worked correctly this should create a file named `output.json` in your current directory (usually the home directory), which can then be passed to Anser Indicus for analysis.
+To import your data run the command: `python ~/Desktop/run_anseri.py import -l english db output` 
+
+Replace `db` with the name you want to give to the new database, and `output` with the path of the folder containing your data, generated with one of the conversion scripts. This will create an `anseri` folder containing the generated database (for example `~/output` or `~/Desktop/output`).
+
+Generating topics:
+==================
+
+To generate topics, use a command like: `python ~/Desktop/run_anseri.py topics sent_db -nf 16 -nd 32 -nt 64 -s -k interesting words`
+
+Options are as follows:
+
+- `sent_db`: name of the database. Use `db` to classify entire documents, `sent_db` to do sentence-level classification (usually better)
+- `-nt`: number of topics to generate
+- `-nf`: number of features (words) per topic
+- `-nd`: number of documents per topic
+- `-s` : print output to a file in the `anseri` subfolder
+- `-k` : limit analysis to documents containing the following keyword(s)
+- `-h` : for help
 
 
 Common issues:
