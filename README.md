@@ -57,7 +57,12 @@ This will create subfolder called `anseri` containing the generated database.
 3) Generating topics:
 =====================
 
-To generate topics, use a command like: `python ~/Desktop/run_anseri.py topics sent_db -nf 16 -nd 32 -nt 64 -s -k interesting words`
+To generate topics, use a command like: 
+`python ~/Desktop/run_anseri.py topics sent_db -s`
+
+You can use additional options such as:
+
+`python ~/Desktop/run_anseri.py topics sent_db -nf 16 -nd 32 -nt 64 -s -k interesting words`
 
 Options are as follows:
 
