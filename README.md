@@ -11,7 +11,7 @@ Start the virtual machine. If you are unable to enter certain characters you may
 Sharing a folder for analysis
 -----------------------------
 
-In order to analyze documents you have to share the original folder with the virtual machine, so it will be able to read from it.
+In order to analyze documents you need to share the folder containing the files with the virtual machine.
 This should be done with the virtual machine turned off, otherwise the settings will not be permanent. Open the VM Settings and go to Shared Folders.
 
 ![Step 1](img/step1.png)
@@ -26,7 +26,7 @@ Choose the folder containing the files you want to work on. Name the shared fold
 
 ![Step 4](img/step4.png)
 
-Once you start the virtual machine the files will be available in the `share` folder on the desktop.
+Once you start the virtual machine your files will be available in the `/media/sf_share` folder.
 
 If that doesn't work see the _automount issues_ section
 
@@ -72,9 +72,11 @@ Automount issues
 
 If the shared folder doesn't mount automatically open a terminal (`Ctrl+alt+T`) and run:
 
+`mkdir ~/Desktop/share`
+
 `sudo mount -t vboxsf -o rw,uid=1000,gid=1000 share ~/Desktop/share`
 
-(Replace `~/Desktop/share/` with another folder if needed)
+This should mount your folder in `~/Desktop/share/`. (Replace `~/Desktop/share/` with another folder if needed)
 
 Shared folder permissions
 -------------------------
