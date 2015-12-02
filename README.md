@@ -70,8 +70,8 @@ Options are as follows:
 - `-h` : for help
 
 
-Common issues:
-==============
+=== Common issues: ===
+======================
 
 Automount issues
 ----------------
