@@ -34,15 +34,15 @@ If that doesn't work see the _automount issues_ section
 Usage:
 ======
 
-Data conversion:
-================
+1) Data conversion:
+==================
 
 Open a terminal using `ctrl+alt+T`. Run the command `dir2json.py source` where `source` is the folder containing your files. The code will scan the folder and all subfolders to extract plaintext from files. It will create a folder named `output` that you can later import into anseri.
 
 For example: `dir2json.py /media/sf_share`
 
-Importing data into anseri:
-===========================
+2) Importing data into anseri:
+==============================
 
 The import script must be executed in a directory containing a `config_template.cfg` file. One is provided in `~/Desktop/test`. Move to that folder with the command:
 
@@ -54,8 +54,8 @@ Replace `db` with the name you want to give to your database, and `output` with 
 
 This will create subfolder called `anseri` containing the generated database.
 
-Generating topics:
-==================
+3) Generating topics:
+=====================
 
 To generate topics, use a command like: `python ~/Desktop/run_anseri.py topics sent_db -nf 16 -nd 32 -nt 64 -s -k interesting words`
 
