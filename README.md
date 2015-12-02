@@ -44,9 +44,17 @@ For example: `dir2json.py /media/sf_share`
 Importing data into anseri:
 ===========================
 
-To import your data run the command: `python ~/Desktop/run_anseri.py import -l english db output` 
+The import script must be executed in a directory containing a `config_template.cfg` file. 
 
-Replace `db` with the name you want to give to the new database, and `output` with the path of the folder containing your data, generated with one of the conversion scripts. This will create an `anseri` folder containing the generated database (for example `~/output` or `~/Desktop/output`).
+One is provided in `~/Desktop/test`. Move to that folder with the command:
+
+`cd ~/Desktop/test`
+
+Then, to generate a database from your data run the command: `python ~/Desktop/run_anseri.py import -l english db output` 
+
+Replace `db` with the name you want to give to your database, and `output` with the path of the folder containing your data, generated with one of the conversion scripts (for example `~/output` or `~/Desktop/output`).
+
+This will create an `anseri` subfolder containing the generated database.
 
 Generating topics:
 ==================
