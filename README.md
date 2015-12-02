@@ -48,9 +48,9 @@ The import script must be executed in a directory containing a `config_template.
 
 `cd ~/Desktop/test`
 
-Then, to generate a database from your data run the command: `python ~/Desktop/run_anseri.py import -l english db output` 
+Then, to generate a database from your data run the command: `python ~/Desktop/run_anseri.py import -l english db ../output` 
 
-Replace `db` with the name you want to give to your database, and `output` with the path of the folder containing your data, generated with one of the conversion scripts (for example `~/output` or `~/Desktop/output`).
+Replace `db` with the name you want to give to your database, and `../output` with the path of the folder containing your data, generated with one of the conversion scripts (for example `~/output` or `~/Desktop/output`).
 
 This will create subfolder called `anseri` containing the generated database.
 
@@ -69,6 +69,7 @@ Options are as follows:
 - `-k` : limit analysis to documents containing the following keyword(s)
 - `-h` : for help
 
+The file containing the topics will be saved in the `anseri` subfolder.
 
 === Common issues: ===
 ======================
